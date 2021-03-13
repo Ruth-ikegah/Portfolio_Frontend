@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from 'react'
+import { BrowserRouter as Router, Switch,Route} from 'react-router-dom'
+import Layout from './containers/Layout'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import Detailed from './pages/Detailed'
+import Home from './pages/Home'
+import Speaking from './pages/Speaking'
+import Work from './pages/Work'
+import './App.css'
+import ScrollRestore from './components/ScrollRestore'
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <>
+  <Router>
+<Layout>
+<ScrollRestore/>
+<Switch>
+
+<Route path="/" component={Home} exact/>
+<Route path="/contact" component={Contact} exact/>
+<Route path="/speaking" component={Speaking} exact/>
+<Route path="/work" component={Work} exact/>
+<Route path="/about" component={About} exact/>
+<Route path="/speaking/:slug" component={Detailed} exact/>
+<Route path="/work/slug" component={Detailed} exact/>
+</Switch>
+
+
+</Layout>
+  </Router>
+  </>
+  )
 }
 
-export default App;
+export default App
