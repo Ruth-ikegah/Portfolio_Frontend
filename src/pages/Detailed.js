@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { RuthColor } from '../styles/ColorStyles'
 import { LargeMediumtext, MediumText } from '../styles/TextStyles'
 
 const Detailed = () => {
@@ -8,7 +9,7 @@ const Detailed = () => {
 
       <Container>
           <Hero>
-              <Heroimg/>
+              <Heroimg src="https://images.unsplash.com/photo-1615393457304-e0f4d3f47cd8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=746&q=80" alt="Ruth Ikegah"/>
               <Herooverlay/>
               <Heroheader>
                   <Heroh1>My Latest projects </Heroh1>
@@ -74,19 +75,55 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 position: relative;
+
+@media only screen and (max-width: 780px){
+    height: 450px;
+}
+
+@media only screen and (max-width: 650px){
+    min-height: 350px;
+    padding: 10px 15px;
+}
 `
 const Heroimg = styled.img`
 position: absolute;
 height: 100%;
 width: 100%;
+top: 0;
+left: 0;
+object-fit: cover;
+z-index: 2;
 `
 const Herooverlay = styled.div`
-
+position: absolute;
+height: 100%;
+width: 100%;
+top: 0;
+left: 0;
+z-index: 3;
 background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 `
-const Heroheader = styled.div``
-const Heroh1 = styled.div``
-const Herotext = styled.div``
+const Heroheader = styled.div`
+z-index: 3;
+position: relative;
+min-height: 54px;
+max-width: 574px;
+text-align: center;
+width: 100%;
+
+`
+const Heroh1 = styled(LargeMediumtext)`
+color: ${RuthColor.white};
+margin: 24px 0;
+`
+const Herotext = styled(MediumText)`
+margin:  0;
+color: rgba(255, 255, 255, 0.67);
+
+@media only screen and (max-width: 650px){
+    font-size: 16px !important;
+}
+`
 const Project = styled.div`
 width: 100%;
 height: 100%;

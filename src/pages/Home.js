@@ -1,11 +1,17 @@
 import React from 'react'
+import styled from 'styled-components'
+import Hero from '../components/Hero'
 
 const Home = () => {
     return (
-        <div>
-            
-        </div>
+        <Homebody>
+
+            <Hero/>
+        </Homebody>
     )
 }
 
+const Homebody = styled.div`
+
+`
 export default Home
